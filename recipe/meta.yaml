@@ -30,7 +30,8 @@ requirements:
 about:
   home: https://www.tensorflow.org/hub/
   license: Apache-2.0
-  license_file: LICENSE
+  license_family: Apache
+  license_file: {{ SRC_DIR }}/LICENSE
   summary: "A library for transfer learning by reusing parts of TensorFlow models."
   description: |
     TensorFlow Hub is a repository of reusable assets for machine learning 
