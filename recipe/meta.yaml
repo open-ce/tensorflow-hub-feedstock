@@ -9,7 +9,7 @@ source:
   git_rev: v{{ version }}
 
 build:
-  number: 0
+  number: 1
   noarch: python
   
 requirements:
@@ -19,9 +19,9 @@ requirements:
     - bazel {{ bazel }}
   host:
     - git >=2.2
-    - python {{ python }}
+    - python  # noarch package; don't tie to specific python version
   run:
-    - python {{ python }}
+    - python  # noarch package; don't tie to specific python version
     - numpy {{ numpy }}
     - six {{ six }}
     - protobuf {{ protobuf }}

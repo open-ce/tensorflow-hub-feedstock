@@ -1,4 +1,4 @@
-# (C) Copyright IBM Corp. 2018, 2019. All Rights Reserved.
+# (C) Copyright IBM Corp. 2018, 2020. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +16,10 @@
 
 set -vex
 
+
+bazel clean --expunge
+bazel shutdown
+
 bazel ${BAZEL_OPTS} build tensorflow_hub/pip_package:build_pip_package
 
 # build a whl file
@@ -29,3 +33,6 @@ pip install --no-deps $SRC_DIR/tensorflow_hub_pkg/*.whl
 
 echo "PREFIX: $PREFIX"
 echo "RECIPE_DIR: $RECIPE_DIR"
+
+bazel clean --expunge
+bazel shutdown
