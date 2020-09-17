@@ -1,0 +1,43 @@
+{% set version = "0.9.0" %}
+
+package:
+  name: tensorflow-hub
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/tensorflow/hub.git
+  git_rev: v{{ version }}
+
+build:
+  number: 1
+  noarch: python
+  
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - bazel {{ bazel }}
+  host:
+    - git >=2.2
+    - python  # noarch package; don't tie to specific python version
+  run:
+    - python  # noarch package; don't tie to specific python version
+    - numpy {{ numpy }}
+    - six {{ six }}
+    - protobuf {{ protobuf }}
+    - tensorflow-base {{ tensorflow }}
+
+about:
+  home: https://www.tensorflow.org/hub/
+  license: Apache-2.0
+  license_family: Apache
+  license_file: {{ SRC_DIR }}/LICENSE
+  summary: "A library for transfer learning by reusing parts of TensorFlow models."
+  description: |
+    TensorFlow Hub is a repository of reusable assets for machine learning 
+    with TensorFlow. In particular, it provides pre-trained SavedModels that 
+    can be reused to solve new tasks with less training time and less training data.
+
+extra:
+  recipe-maintainers:
+    - open-ce/open-ce-dev-team
