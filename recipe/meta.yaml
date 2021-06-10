@@ -9,7 +9,7 @@ source:
   git_rev: v{{ version }}
 
 build:
-  number: 3
+  number: 4
   noarch: python
   string: py_pb{{ protobuf | replace(".*", "")}}_{{ PKG_BUILDNUM }}
   
@@ -18,9 +18,15 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - bazel {{ bazel }}
+    # Use pins to control cos6/cos7 match
+    - libgcc-ng  {{ libgcc }}
+    - libstdcxx-ng  {{ libstdcxx }}
   host:
     - git >=2.2
     - python  # noarch package; don't tie to specific python version
+    # Use pins to control cos6/cos7 match
+    - libgcc-ng  {{ libgcc }}
+    - libstdcxx-ng  {{ libstdcxx }}
   run:
     - python  # noarch package; don't tie to specific python version
     - numpy {{ numpy }}
