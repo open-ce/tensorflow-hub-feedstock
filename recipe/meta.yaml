@@ -11,9 +11,9 @@ source:
     - 0001-adjust-protobuf-github-repo.patch
 
 build:
-  number: 4
+  number: 5
   noarch: python
-  string: py_pb{{ protobuf | replace(".*", "")}}_{{ PKG_BUILDNUM }}
+  string: pyh{{ PKG_HASH }}_pb{{ protobuf | replace(".*", "")}}_{{ PKG_BUILDNUM }}
   
 requirements:
   build:
