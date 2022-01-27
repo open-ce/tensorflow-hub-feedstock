@@ -11,14 +11,14 @@ source:
     - 0001-adjust-protobuf-github-repo.patch
 
 build:
-  number: 5
+  number: 6
   noarch: python
   string: pyh{{ PKG_HASH }}_pb{{ protobuf | replace(".*", "")}}_{{ PKG_BUILDNUM }}
   
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}       # [ppc_arch != "p10"]
+    - {{ compiler('cxx') }}     # [ppc_arch != "p10"]
     - bazel {{ bazel }}
   host:
     - git >=2.2
