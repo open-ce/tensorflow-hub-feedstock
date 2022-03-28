@@ -1,0 +1,25 @@
+From ca1ef2f8b8279e421d9ea79bbec3683e178b9b51 Mon Sep 17 00:00:00 2001
+From: Nishidha Panpaliya <npanpa23@in.ibm.com>
+Date: Mon, 28 Mar 2022 04:59:43 -0400
+Subject: [PATCH] Updated zlib url
+
+---
+ WORKSPACE | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/WORKSPACE b/WORKSPACE
+index 495ed63..9a33f35 100644
+--- a/WORKSPACE
++++ b/WORKSPACE
+@@ -31,7 +31,7 @@ http_archive(
+     build_file = "@com_google_protobuf//:third_party/zlib.BUILD",
+     sha256 = "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1",
+     strip_prefix = "zlib-1.2.11",
+-    urls = ["https://zlib.net/zlib-1.2.11.tar.gz"],
++    urls = ["https://zlib.net/zlib-1.2.11.tar.gz", "https://fossies.org/linux/misc/zlib-1.2.11.tar.gz"],
+ )
+ 
+ # Required by protobuf 3.8.0.
+-- 
+2.32.0
+
