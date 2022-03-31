@@ -9,9 +9,10 @@ source:
   git_rev: v{{ version }}
   patches:
     - 0001-adjust-protobuf-github-repo.patch
+    - 0301-Updated-zlib-url.patch
 
 build:
-  number: 6
+  number: 7
   noarch: python
   string: pyh{{ PKG_HASH }}_pb{{ protobuf | replace(".*", "")}}_{{ PKG_BUILDNUM }}
   
