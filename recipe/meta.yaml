@@ -29,6 +29,11 @@ requirements:
     - numpy {{ numpy }}
     - protobuf {{ protobuf }}
     - tensorflow-base {{ tensorflow }}
+    - tensorflow-estimator {{ tf_estimator }}
+
+test:
+  imports:
+    - tensorflow_hub
 
 about:
   home: https://www.tensorflow.org/hub/
