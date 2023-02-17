@@ -16,9 +16,7 @@
 # *****************************************************************
 set -vex
 
-
-bazel clean --expunge
-bazel shutdown
+source open-ce-common-utils.sh
 
 bazel ${BAZEL_OPTS} build tensorflow_hub/pip_package:build_pip_package
 
@@ -34,5 +32,7 @@ pip install --no-deps $SRC_DIR/tensorflow_hub_pkg/*.whl
 echo "PREFIX: $PREFIX"
 echo "RECIPE_DIR: $RECIPE_DIR"
 
-bazel clean --expunge
-bazel shutdown
+PID=$(bazel info server_pid)
+echo "PID: $PID"
+cleanup_bazel $PID
+
