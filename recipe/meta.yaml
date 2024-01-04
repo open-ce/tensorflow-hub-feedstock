@@ -21,12 +21,14 @@ requirements:
   host:
     - git >=2.2
     - python  # noarch package; don't tie to specific python version
+    - ml_dtypes {{ ml_dtypes }}
   run:
     - python  # noarch package; don't tie to specific python version
     - numpy {{ numpy }}
     - protobuf {{ protobuf }}
     - tensorflow-base {{ tensorflow }}
     - tensorflow-estimator {{ tf_estimator }}
+    - ml_dtypes {{ ml_dtypes }}
 
 test:
   imports:
