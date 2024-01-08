@@ -1,4 +1,4 @@
-{% set version = "0.14.0" %}
+{% set version = "0.15.0" %}
 
 package:
   name: tensorflow-hub
@@ -21,12 +21,14 @@ requirements:
   host:
     - git >=2.2
     - python  # noarch package; don't tie to specific python version
+    - ml_dtypes {{ ml_dtypes }}
   run:
     - python  # noarch package; don't tie to specific python version
     - numpy {{ numpy }}
     - protobuf {{ protobuf }}
     - tensorflow-base {{ tensorflow }}
     - tensorflow-estimator {{ tf_estimator }}
+    - ml_dtypes {{ ml_dtypes }}
 
 test:
   imports:
@@ -36,7 +38,7 @@ about:
   home: https://www.tensorflow.org/hub/
   license: Apache-2.0
   license_family: Apache
-  license_file: {{ SRC_DIR }}/LICENSE
+  license_file: {{ SRC_DIR }}/tensorflow_hub/LICENSE
   summary: "A library for transfer learning by reusing parts of TensorFlow models."
   description: |
     TensorFlow Hub is a repository of reusable assets for machine learning 
