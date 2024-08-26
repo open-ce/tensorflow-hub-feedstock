@@ -14,13 +14,19 @@ build:
   string: pyh{{ PKG_HASH }}_pb{{ protobuf | replace(".*", "")}}_{{ PKG_BUILDNUM }}
   
 requirements:
-  build:
+#  build:
+#    - {{ compiler('c') }}       # [ppc_arch != "p10"]
+#    - {{ compiler('cxx') }}     # [ppc_arch != "p10"]
+#    - bazel {{ bazel }}
+#    - setuptools {{ setuptools }}
+  host:
     - {{ compiler('c') }}       # [ppc_arch != "p10"]
     - {{ compiler('cxx') }}     # [ppc_arch != "p10"]
     - bazel {{ bazel }}
-  host:
+    - pip {{ pip }}
     - git >=2.2
     - python  # noarch package; don't tie to specific python version
+    - setuptools {{ setuptools }}
   run:
     - python  # noarch package; don't tie to specific python version
     - numpy {{ numpy }}
@@ -29,6 +35,8 @@ requirements:
     - tensorflow-estimator {{ tf_estimator }}
 
 test:
+  requires:
+    - pip {{ pip }}
   imports:
     - tensorflow_hub
 
